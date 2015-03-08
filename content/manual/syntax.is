@@ -1,0 +1,431 @@
+/*
+title: Syntax
+description: [[thiis]] supports a simple [[wp>Lightweight markup language]] which make edition simple and readable.
+*/
+
+The principle is to use doubled characters surrounding text to structure, modify or embed content. To be easily memorable and readable, the characters are frequently chosen to mimic the visual result. You can also use any HTML tags, but in the most cases there is here a better alternative.
+
+
+===================
+Formatting content
+===================
+
+Formatting shall be used to indicate the **meaning** of a text, not it's design. It's a semantic description who may be visually rendered in any form, according to [[styles]].
+
+Basics
+------
+
+The lines breaks are automatically managed, just leave a blank line for a new paragraph. If you need to specifically break a line, you can use a double anti-slash : <code>\\\</code>.
+
+<code>
+<p>This is how a paragraph will render, with a <br/> line break.</p>
+</code>
+
+The slashes tilt indicate //emphasized text//, generally displayed in italic. The stars weight indicate **important text**, generally displayed in bold. The underscores indicate __underlined text__. Of course you can **__//combine them all//__**.
+
+
+<code>
+Slashes for //emphasis//
+Stars for **important text**
+Underscores for __underlined text__
+Everything in the right order to **__//combine them all//__**
+</code>
+
+En dash like -- are made with two dashes, em dash like --- with three dashes.
+<code>
+En dash like -- are made with two dashes, em dash like --- with three dashes.
+</code>
+
+
+Links
+------
+
+Links are defined by surrounding text by double square brackets.
+
+To link to a page of the site, write its path like [[manual/syntax]].
+To link to a file of the site, write its path like [[image.jpg]].
+To link to another site, write its url like [[nliautaud.fr]].
+To link to a mail address, write it like [[hi@domain.com]].
+<code>
+To link to a page of the site, write its name like [[manual/syntax]].
+To link to a file of the site, write its path like [[image.jpg]].
+To link to another site, write its url like [[nliautaud.fr]].
+To link to a mail address, write it like [[hi@domain.com]].
+</code>
+
+To define [[download>the link text]], use a greater than character.
+<code>
+To define [[download>the link text]], use a greater than character.
+</code>
+
+
+To point to a page section, use anchor like [[manual/rights#Pages rights]].
+Or for the same page, even [[#Tables of content]].
+<code>
+To point to a page section, use anchors like [[development#Changelog]].
+Or for the same page, even [[#Tables of content]].
+</code>
+
+Broken internal links like [[notapage]] are automatically detected.
+
+Thiis supports some shortcuts who simplify linking to usefull websites like Google, Wikipedia, Dokuwiki and Thiis by writing their names or even a two-letters alias.
+
+Search on [[google]] for [[google>art]], or just [[go>art]].
+Go on [[wikipedia]] for [[wp>photography]] or [[wp>fr:photographie]].
+Link to [[thiis]], to tell everyone to [[is>download]] it !
+<code>
+Search on [[google]] for [[google>art]], or just [[go>art]].
+Go on [[wikipedia]] for [[wp>photography]] or [[wp>fr:photographie]].
+Link to [[thiis]], to tell everyone to [[is>download]] it !
+</code>
+
+
+Titles
+------
+
+
+You can use up to four different levels of headlines to structure your content, by surrounding or underlining the text with hashes, equality signs, dashes and diaeresis.
+
+They are automatically nested, accessible by HTML anchors and allow to generate a [[syntax#Table of content>table of content]] on the fly.
+
+The first main header of a page content is by default understood as the page title.
+
+You can also make an horizontal line by writing three or more underscores.
+
+Surrounds a text by three or more hash for a main title, three or more equality signs for a secondary title and three or more dashes for a subtitle.
+
+<code>
+First-level header
+==================
+
+Second-level header
+-------------------
+
+### Third-level header
+</code>
+
+Everything may be wrote on a single line or on their own, and the text may be surrounded or just underlined by the characters. Do as you wish.
+
+<div></div>
+<code>
+========== Header surrounded on a single line ==========
+
+========================================
+Header surrounded on different lines
+========================================
+
+Header underlined
+=================
+</code>
+
+
+Lists
+------
+
+Lists are made by enumerating each item with stars or dashes, in new lines preceded by two whitespaces or a tabulation. Stars for unordered list, dashes for ordered lists (actually, only the first item matters).
+
+<div>
+  * something
+  * another thing
+  * etc.
+
+  - first item
+  - second item
+  - etc.
+</div>
+<code>
+  * something
+  * another thing
+  * etc.
+
+  - first item
+  - second item
+  - etc.
+</code>
+
+Definitions lists use double stars or dashes to enumerate items. The first content surrounded by stars or dashes is the definition term. For every item there may be no term, or only a term, or a term and a definition.
+
+<div>
+  ** a definition
+  ** another definition
+  ** etc.
+
+  ** a term ** is sometimes followed by its definition
+  ** but not every time
+  ** because some things are obvious **
+</div>
+<code>
+  ** a definition
+  ** another definition
+  ** etc.
+
+  ** a term ** is sometimes followed by its definition
+  ** but not every time
+  ** because some things are obvious **
+</code>
+
+Every lists may be nested using indentation, by using additionnal whitespaces or tabulations.
+
+  - This list
+  - is ordered...
+    ** Those terms are nested
+      - This one is again nested
+      - with another tabulation level
+    ** with an additional tabulation
+  - ...and continue here
+
+<code>
+	- This list
+	- is ordered...
+		* This list is nested by using an additional tabulation
+			-- This definition is nested too
+			-- with another tabulation
+		* and is unordered by using stars.
+	- ...and continue here
+</code>
+
+
+Footnotes
+------------
+
+A footnote is surrounded by double parentheses ((like this)).
+Contextual footnotes use two "greater than" characters to rely to ((the inline text which it refers>>this part is a footnote)).
+
+<code>
+A footnote is surrounded by double parentheses ((like this)).
+Contextual footnotes use two "greater than" characters to rely to ((the inline text which it refers>>this part is a footnote)).
+</code>
+
+
+Codes
+-----
+
+Use the <code>code tag</code> to write inline code, or code block as below if you write it in a new line.
+
+<code>
+The <code>code tag< /code> or the ''quotes markup'' let you display inline code and became code block as below if you write it in a new line.
+</code>
+
+Use a ''&lt;noparse>'' <noparse>tag to keep **zones** untouched.</noparse>.''&lt;/noparse>''
+<code>
+Use the < noparse> tag to keep **zones** untouched.< /noparse>.
+</code>
+
+
+
+
+=================
+Embedding objects
+=================
+
+Yo can integrate objects (medias, generated content...) by surrounding its name by double curly brackets :
+<code>{{object}}</code>
+
+You can determine the object alignment (inline, right, left or centered) by using whitespace(s) :
+
+<code>
+{{inline}}
+{{ right}}
+{{left }}
+{{ centered }}
+</code>
+
+You can usually define object parameters by writing them after a greater than character, and separated with semicolons :
+
+<code>
+{{object>parameter}}
+{{object>parameter1;parameter2;...}}
+</code>
+
+You can often define object size by indicating one or two values in pixels or percents. The first given is the width, the second the height.
+
+<code>
+{{object>100px}}
+{{object>50%}}
+{{object>800px;25%}}
+</code>
+
+
+
+-------
+Images
+-------
+
+To display an image just write its address. Relative to the [[settings#files_path]] for a local image, absolute for an external image.
+
+{{image.jpg>288px}} {{http://nliautaud.fr/thiis/image.jpg>288px}}
+
+<code>
+{{image.jpg}}
+{{http://nliautaud.fr/thiis/image.jpg}}
+</code>
+
+Adding a text as parameter will create a figure with caption.
+
+{{image.jpg>This is a figure}}
+<code>{{image.jpg>This is a figure}}</code>
+
+
+You can combine an image with links in multiple ways.
+
+A clickable image is an image used as link alias, so you can intricate an image in any possible link.
+
+[[#Links>{{image.jpg}}]] [[image.jpg>{{image.jpg}}]]
+<code>
+[[#Links>{{image.jpg}}]] [[image.jpg>{{image.jpg}}]]
+</code>
+
+Add a caption to the clickable image, to create a figure with a clickable image.
+
+[[syntax>{{image.jpg>The image link to this page}}]] [[hi@domain.com>{{image.jpg>The image link to a mail address}}]]
+<code>
+[[syntax>{{image.jpg>The image link to this page}}]]
+[[hi@domain.com>{{image.jpg>The image link to a mail address}}]]
+</code>
+
+Of course you can use links in figure captions.
+
+{{image.jpg>[[#Links]]}} {{image.jpg>This is a [[#Links>link]]}}
+<code>
+{{image.jpg>[[#Links]]}}
+{{image.jpg>This is a [[#Links>link]]}}
+</code>
+
+You could make a figure with an image linking to something and a caption linking to something else.
+
+[[syntax>{{image.jpg>There is [[#Links>two different links]] here.}}]]
+<code>
+[[syntax>{{image.jpg>There is [[#Links>two different links]] here.}}]]
+</code>
+
+
+
+---------
+Galleries
+---------
+
+You can display an image gallery by using the keyword <b>gallery</b> :
+
+<code>{{gallery}}</code>
+
+Indicate a path relative to root to display images from another location.
+<code>{{gallery>files/images}}</code>
+
+By adding a parameter containing stars characters, you can filter images by file name or extension. The star work as simple wildcard symbol.
+<code>
+{{gallery>*.jpg}} Display only jpg files
+{{gallery>foo_*}} Display only files starting by "foo_", like "foo_bar.jpg"
+{{gallery>*foo*.jpg}} Display only jpg files containing "foo"
+</code>
+
+By indicating size(s), you can determine images dimensions.
+<code>
+{{gallery>100px}}
+{{gallery>100px;50px}}
+</code>
+
+By indicating a number, determine how many images to display one after the other. The object alignment determine each image alignment. In the following example, each image will be centered.
+<code>{{ gallery>5 }}</code>
+
+By indicating two numbers, determine respectively the number of columns and rows of the gallery table. In the following example, the gallery will be a table of 10 images.
+<code>{{gallery>5;2}}</code>
+
+Add the parameter "filename" to use images boxes showing the images names.
+<code>{{gallery>filename}}</code>
+
+Add the parameter "reverse" to reverse the images order, or "random" to use random order.
+<code>
+{{gallery>reverse}}
+{{gallery>random}}
+</code>
+
+Add the parameter "link" to link every image to its media page.
+<code>{{gallery>link}}</code>
+
+Example :
+
+<code>
+{{gallery>photos/pinhole1;1*.jpg;150px;3;2;filename;random;link}}
+</code>
+
+{{gallery>photos/pinhole1;*1*.jpg;150px;3;2;filename;random;link}}
+
+
+
+-------
+Videos
+-------
+
+You can insert embed videos from the following sites, stating as parameter the video ID :
+  * vimeo (http://vimeo.com/<b>12345678</b>)
+  * youtube (http://youtube.com/watch?v=<b>vHACOdtRfbI</b>)
+  * dailymotion (http://dailymotion.com/video/<b>x1udeu</b>_video-name)
+
+<code>
+{{vimeo>12345678}}
+{{youtube>vHACOdtRfbI}}
+...
+</code>
+
+You can use the URL parameters of the chosen site :
+<code>{{vimeo>12345678?title=0&byline=0&portrait=0}}</code>
+
+
+
+------------------
+Tables of content
+------------------
+
+To insert a table of content use the keyword <b>toc</b> :
+<code>{{toc}}</code>
+
+By default the actual page is used but you can insert the table of content of any page by indicating its name as parameter :
+<code>{{toc>pagename}}</code>
+
+You can also define two numeric parameters :
+
+The first given is the table depth and determine what maximum header level display :
+{{toc>4}} {{toc>2}}
+
+<code>{{toc>4}} {{toc>2}}</code>
+
+The second given determine the minimum number of elements required in the table to display it. In the following exemple, nothing is displayed because there is less than 90 elements :
+
+<code>{{toc>3;90}}</code>
+
+{{toc>3;90}}
+
+
+===============
+Dive into thiis
+===============
+
+You can display any data value by using the data name as keyword, the item name as first parameter and if needed the item field as secondary parameter.
+
+{{setting>site_description}}, and this page is in {{page>syntax;parent}}.
+<code>
+{{setting>site_description}}, and this page is in {{page>syntax;parent}}.
+</code>
+
+You can omit the page name for the current one, like {{page>name}}.
+<code>
+You can omit the page name for the current one, like {{page>name}}.
+</code>
+
+
+
+### Methods
+
+You can access to any thiis methods about pages, with the prefix ''page_'', by using the keyword **page**. This allow to easilly integrate the page content or footnotes to a template. All the methods are documented in the [[documentation]].
+
+{{page>title}} is a call of ''Thiis::page_title()''.
+<code>
+{{page>title}} is a call of ''Thiis::page_title()''.
+</code>
+
+You can access to any thiis methods outputing html, with the prefix ''html_'', by using the keyword **thiis**. All the methods are documented in the [[documentation]].
+
+{{thiis>pages_list;manual}} is a call of ''Thiis::html_pages_list(manual)''.
+<code>
+{{thiis>pages_list;manual}} is a call of ''Thiis::html_pages_list(manual)''.
+</code>

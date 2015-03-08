@@ -1,0 +1,6 @@
+area 403 : Forbidden
+====================
+
+Login : {{ login_form }}
+
+{{ http://placekitten.com/403 }}

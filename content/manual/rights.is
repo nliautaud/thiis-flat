@@ -1,0 +1,39 @@
+Users & rights
+================
+
+
+Login
+-----
+
+A login form like the following one may be displayed anywhere by using :
+<code>{{ login_form }}</code>
+{{ login_form }}
+
+
+Pages rights
+-----
+
+By default, a page is visible to everyone.
+The use of the setting ''allow_view'' will restrict it to a specific user or group of users.
+
+A page may be restricted to logged users, using ''allow_view : users'',
+or to a specific user like ''allow_view : users/john'' or to a specific group of users,
+like''allow_view : users/managers/team_a''.
+Unauthorized visitors will see a 403/Unauthorized page (ex. [[manual/truc/restricted]]).
+
+Example :
+
+With such a configuration of users :
+<code>
+user
+|  group1
+|  |   stan
+|  |   klyde
+|  group2
+|  |   cartman
+|  |   group3
+|  |   |   kenny
+</code>
+
+A page restricted to group 2 will be shown to cartman and kenny, but not to stan and klyde.
+A page restricted to group 3 will be shown to kenny only, not to stan, klyde and cartman.

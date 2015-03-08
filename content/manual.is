@@ -1,0 +1,73 @@
+/*
+Title: Manual
+Description: This is the manual of thiis cms
+Author: John Doe, [[nliautaud]] (propagate)
+Date: 2013/01/01
+
+View: users (propagate)
+Edit: users/admin, users/other
+*/
+
+Page configuration
+==================
+
+Test of page header format. May replace any direct config handling of page.
+
+<code>
+/*
+Title: Manual
+Description: This is the manual of thiis cms
+Author: John Doe, [[nliautaud]] (propagate)
+Date: 2013/01/01
+
+View: users (propagate)
+Edit: users/admin, users/other
+*/
+</code>
+
+	* A block comment at file start, containing one setting by line in format "key : value".
+	* Any setting possible, retrievable by a method and syntax.
+	* Different values separated by commas.
+	* The propagation of settings is defined by "(propagate)" : get settings of page, and go up the tree to search for propagated settings. Child pages settings > propagated settings.
+
+No more searching for title in content. A general method get page content, analyses it and memorize settings & content.
+	- extract the header (the rest is content)
+	- list settings (explode new lines)
+	- separate key and value (explode semicolon)
+	- search for propagate
+	- list values (explode commas)
+	- format key (strtolower, spaces to dashes... like str2id)
+	- parse values
+	- memorize things (store in memory config)
+
+How to memorize the propagation of a setting of page A ?
+  * By just indicating it in memory of the page, and searching for a propagated setting S in parents of P when asking the setting S of a page P ? **process repetition !**
+  * By really propagating the setting during page SET to each childs. **need childs of P defined !**
+
+Parsing
+=======
+
+No more auto line breaks. Use ''\\''.
+________
+
+Inverse Link+alias format. We surround a piece of text, and indicate where to link.
+
+To make a link from [[manual/syntax>a given text]], surround the text by brackets and use a greater than character to define the link address.
+<code>
+To make a link from [[a given text > manual/syntax]], surround the text by brackets and use a greater than character to define the link address.
+</code>
+
+Exemples
+--------
+
+markdown [[http://daringfireball.net/projects]]
+pico-cms [[http://pico.dev7studios.com]]
+
+
+
+
+bugs
+-----
+
+external URL with multiple sub-folders not reconized for link syntax.
+like http://daringfireball.net/projects/markdown/syntax
